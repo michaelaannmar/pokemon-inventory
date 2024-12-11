@@ -1,0 +1,55 @@
+
+<div class="max-w-md mx-auto p-6 bg-gray-100 rounded-lg shadow-md">
+    <h1 class="text-2xl font-semibold mb-4 text-center">Card Form</h1>
+    <form #cardForm="ngForm">
+      <div class="mb-4">
+        <label class="block text-sm font-medium mb-1" for="cardName">Card Name</label>
+        <input id="cardName" type="text" 
+          class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-200" />
+      </div>
+      <div class="mb-4">
+        <label class="block text-sm font-medium mb-1" for="cardSet">Card Set</label>
+        <input  id="cardSet" type="number" formControlName="cardSet"
+          class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-200" />
+      </div>
+      <div class="mb-4">
+        <label class="block text-sm font-medium mb-1" for="setNumber">Set Number</label>
+        <input id="setNumber" type="number" 
+          class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-200" />
+      </div>
+      <div class="mb-4">
+        <label class="block text-sm font-medium mb-1" for="rarity">Rarity</label>
+        <select id="rarity" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <option [value]="rar" *ngFor="let rar of rarity">{{rar}}</option>
+          </select>
+      </div>
+      <div class="mb-4">
+        <label class="block text-sm font-medium mb-1" for="type">Type</label>
+        <select id="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <option [value]="ty" *ngFor="let ty of type">{{ty}}</option>
+          </select>
+      </div>
+      <div class="mb-4">
+        <label class="block text-sm font-medium mb-1" for="condition">Condition</label>
+        <select id="condition" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <option [value]="con" *ngFor="let con of condition">{{con}}</option>
+          </select>
+      </div>
+      <div class="mb-4">
+        <label class="block text-sm font-medium mb-1" for="language">Language</label>
+        <input id="language" type="text"
+          class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-200" />
+      </div>
+      <div class="mb-4">
+        <label class="block text-sm font-medium mb-1" for="quantity">Quantity</label>
+        <input id="quantity" type="number" 
+          class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-200" />
+      </div>
+      <button type="submit" (click)="onSubmit()"
+        class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 focus:ring focus:ring-blue-200">
+        Submit
+      </button>
+    </form>
+  </div>
+  
+  

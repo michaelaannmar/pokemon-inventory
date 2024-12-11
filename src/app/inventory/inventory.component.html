@@ -1,0 +1,75 @@
+
+
+
+<div class="flex flex-col items-center justify-center py-10">
+    <!-- Title -->
+    <h1 class="text-2xl font-bold text-gray-800 dark:text-gray-600 mb-6">All Inventory</h1>
+  
+    <!-- Table Wrapper -->
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg max-w-4xl w-full">
+      <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <tr>
+            <th scope="col" class="px-6 py-3">
+              Card Name
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Set
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Set Number
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Language
+            </th>
+            <th scope="col" class="px-6 py-3">
+              Details
+            </th>
+            <th scope="col" class="px-6 py-3">
+                Delete
+              </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let card of Cards' class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              {{card.cardName}}
+            </th>
+            <td class="px-6 py-4">
+              {{card.cardSet}}
+            </td>
+            <td class="px-6 py-4">
+              {{card.setNumber}}
+            </td>
+            <td class="px-6 py-4">
+              {{card.language}}
+            </td>
+            <td class="px-6 py-4">
+              <a routerLink="/detail/{{card.id}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Details</a>
+            </td>
+            <td class="px-6 py-4">
+                <button 
+                class="bg-red-500 text-white p-2 rounded hover:bg-red-700"
+                (click)="confirmDelete(card.id)">Delete Card</button>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- Confirmation Popup Modal -->
+<div *ngIf="isModalOpen" 
+class="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-50">
+<div class="bg-white p-6 rounded shadow-lg w-96">
+<h3 class="text-lg font-semibold mb-4">Are you sure you want to delete this card?</h3>
+<div class="flex justify-between">
+ <button 
+   class="bg-gray-500 text-black p-2 rounded hover:bg-gray-700"
+   (click)="closeModal()">Cancel</button>
+ <button 
+   class="bg-red-500 text-black p-2 rounded hover:bg-red-700"
+   (click)="deleteCard()">Confirm Delete</button>
+</div>
+</div>
+</div>
